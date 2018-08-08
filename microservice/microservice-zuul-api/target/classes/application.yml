@@ -1,0 +1,45 @@
+spring:
+  application:
+    name: accounts-zuul-service
+#zuul:
+  #routes:
+    #accounts:
+      #url: http://ACCOUNTS-SERVICE
+
+zuul:
+  ignoredServices: "*"
+  routes:
+    accounts: 
+      #path: /accounts/**
+      serviceId: ACCOUNTS-SERVICE
+      stripPrefix: false
+      #url: http://localhost:4444
+    #test:
+     # path: /redirect/**
+      #url: https://google.com   
+      
+         
+
+# Discovery Server Access
+#  1. Define URL of registration server (defaultZone)
+#  2. Reduce lease-renewal time so processes register more quickly
+eureka:
+  client:
+    serviceUrl:
+      registerWithEureka: true
+      fetchRegistry: true
+      defaultZone: http://localhost:1111/eureka/
+
+# HTTP Server
+server:
+  port: 5555   # HTTP (Tomcat) port
+  
+# Increase the Hystrix timeout to 60s (for all)
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000  
+ 

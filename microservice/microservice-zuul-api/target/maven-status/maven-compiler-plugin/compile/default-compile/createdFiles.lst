@@ -1,0 +1,5 @@
+com\microservice\zuulapi\filter\ErrorFilter.class
+com\microservice\zuulapi\ZuulApiTest.class
+com\microservice\zuulapi\filter\PostFilter.class
+com\microservice\zuulapi\filter\PreFilter.class
+com\microservice\zuulapi\filter\RouteFilter.class
